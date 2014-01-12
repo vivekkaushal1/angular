@@ -4,13 +4,10 @@
 
 var phonecatApp = angular.module('phonecatApp', []);
 
-phonecatApp.controller('PhoneListCtrl', function($scope){
-	$scope.phones = [
-	{'name': 'Lumia 1520',
-	'snippet': 'Do not recall just relive..'},
-	{'name': 'Lumia 1020',
-	'snippet': 'Zoom Reinvented'},
-	{'name': 'Lumia 2520',
-	'snippet': 'Innovation Reinvented'}
-	];
+phonecatApp.controller('PhoneListCtrl', function($scope, $h{ttp){
+	$http.get('phones/phones.json').success(function(data) {
+		$scope.phones = data;
+	});
+	
+	$scope.orderProp = 'age'
 });
