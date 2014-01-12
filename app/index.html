@@ -22,10 +22,11 @@
 
     </div>
     <div class="span10">
-      <ul>
-        <li ng-repeat="phone in phones | filter:query">
-          {{phone.name}}
-          <p>{{}phone.snnipet}</p>
+      <ul class="phones">
+        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+          <p>{{phone.snnipet}}</p>
         </li>
       </ul>
     </div>
